@@ -1,0 +1,59 @@
+1  w
+    2  cat /etc/os-release
+    3  sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm -y
+    4  sudo dnf install -y mc git htop nano curl wget ansible ncdu httpd
+    5  sudo dnf install -y mc git htop nano curl wget ansible-core ncdu httpd
+    6  ll
+    7  touch file_{1..5}
+    8  ll
+    9  sudo chown root:root file_*
+   10  ll
+   11  mkdir test_dir
+   12  mv file_* test_dir/
+   13  rm -rf test_dir/
+   14  ll
+   15  systemctl status httpd
+   16  systemctl start httpd
+   17  sudo systemctl start httpd
+   18  systemctl start httpd
+   19  systemctl status httpd
+   20  ss
+   21  ss -tulnp | grep 80
+   22  sudo ss -tulnp | grep 80
+   23  ip -4 s
+   24  ip -4 a
+   25  sudo systemctl enable httpd
+   26  ncdu /
+   27  df -h
+   28  lsblk
+   29  sudo file -s /dev/xvdb
+   30  sudo mkfs -t xfs /dev/xvdb
+   31  sudo file -s /dev/xvdb
+   32  sudo mkdir /data
+   33  sudo mount /dev/xvdb /data
+   34  df -h
+   35  sudo blkid
+   36  sudo nano /etc/fstab
+   37  df -h
+   38  sudo umount /data
+   39  sudo mount -a
+   40  df -h
+   41  sudo umount /data
+   42  df -h
+   43  sudo mount -a
+   44  df -h
+   45  sudo ss -tulnp | grep 80
+   46  grep -ir "log" /etc/httpd/
+   47  less /etc/httpd/conf/httpd.conf
+   48  ll /etc/httpd/logs/
+   49  sudo ll /etc/httpd/logs/
+   50  sudo ls -laht /etc/httpd/logs/
+   51  sudo tail -f /etc/httpd/logs/access_log
+   52  sudo tail -f /etc/httpd/logs/error_log
+   53  nano /etc/httpd/conf/httpd.conf
+   54  sudo nano /etc/httpd/conf/httpd.conf
+   55  apachectl graceful
+   56  sudo apachectl graceful
+   57  sudo tail -f /etc/httpd/logs/error_log
+   58  history
+   59  history > commands.txt
