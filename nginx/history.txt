@@ -1,0 +1,111 @@
+    1  cd
+    2  ll
+    3  dnf update
+    4  cd /usr/local/src/
+    5  ll
+    6  wget http://nginx.org/download/nginx-1.28.0.tar.gz
+    7  ll
+    8  tar -zxvf nginx-1.28.0.tar.gz
+    9  cd nginx-1.28.0/
+   10  ll
+   11  git -v
+   12  dnf install git
+   13  git clone git@github.com:yaoweibin/nginx_upstream_check_module.git
+   14  git clone https://github.com/yaoweibin/nginx_upstream_check_module.git
+   15  ll
+   16  sudo ./configure     --prefix=/etc/nginx     --sbin-path=/usr/sbin/nginx     --conf-path=/etc/nginx/nginx.conf     --pid-path=/var/run/nginx.pid     --lock-path=/var/run/nginx.lock     --error-log-path=/var/log/nginx/error.log     --http-log-path=/var/log/nginx/access.log     --with-http_ssl_module     --with-http_stub_status_module     --with-http_realip_module     --with-http_auth_request_module     --with-http_v2_module     --with-http_dav_module     --with-http_slice_module     --with-http_addition_module     --with-http_gunzip_module     --with-http_gzip_static_module     --with-http_sub_module     --with-mail_ssl_module     --with-stream_ssl_module     --add-module=/usr/local/src/nginx-1.28.0/nginx_upstream_check_module
+   17  dnf install pcre-devel
+   18  sudo ./configure     --prefix=/etc/nginx     --sbin-path=/usr/sbin/nginx     --conf-path=/etc/nginx/nginx.conf     --pid-path=/var/run/nginx.pid     --lock-path=/var/run/nginx.lock     --error-log-path=/var/log/nginx/error.log     --http-log-path=/var/log/nginx/access.log     --with-http_ssl_module     --with-http_stub_status_module     --with-http_realip_module     --with-http_auth_request_module     --with-http_v2_module     --with-http_dav_module     --with-http_slice_module     --with-http_addition_module     --with-http_gunzip_module     --with-http_gzip_static_module     --with-http_sub_module     --with-mail_ssl_module     --with-stream_ssl_module     --add-module=/usr/local/src/nginx-1.28.0/nginx_upstream_check_module
+   19  dnf groupinstall "Development Tools"
+   20  sudo ./configure     --prefix=/etc/nginx     --sbin-path=/usr/sbin/nginx     --conf-path=/etc/nginx/nginx.conf     --pid-path=/var/run/nginx.pid     --lock-path=/var/run/nginx.lock     --error-log-path=/var/log/nginx/error.log     --http-log-path=/var/log/nginx/access.log     --with-http_ssl_module     --with-http_stub_status_module     --with-http_realip_module     --with-http_auth_request_module     --with-http_v2_module     --with-http_dav_module     --with-http_slice_module     --with-http_addition_module     --with-http_gunzip_module     --with-http_gzip_static_module     --with-http_sub_module     --with-mail_ssl_module     --with-stream_ssl_module     --add-module=/usr/local/src/nginx-1.28.0/nginx_upstream_check_module
+   21  dnf install openssl-devel
+   22  sudo ./configure     --prefix=/etc/nginx     --sbin-path=/usr/sbin/nginx     --conf-path=/etc/nginx/nginx.conf     --pid-path=/var/run/nginx.pid     --lock-path=/var/run/nginx.lock     --error-log-path=/var/log/nginx/error.log     --http-log-path=/var/log/nginx/access.log     --with-http_ssl_module     --with-http_stub_status_module     --with-http_realip_module     --with-http_auth_request_module     --with-http_v2_module     --with-http_dav_module     --with-http_slice_module     --with-http_addition_module     --with-http_gunzip_module     --with-http_gzip_static_module     --with-http_sub_module     --with-mail_ssl_module     --with-stream_ssl_module     --add-module=/usr/local/src/nginx-1.28.0/nginx_upstream_check_module
+   23  make
+   24  make install
+   25  nginx -v
+   26  cd /etc/nginx/
+   27  ll
+   28  systemctl status nginx
+   29  vim /lib/systemd/system/nginx.service
+   30  systemctl status nginx
+   31  systemctl start nginx
+   32  systemctl status nginx
+   33  systemctl enable nginx
+   34  dnf install certbot python3-certbot-nginx
+   35  ll
+   36  cat nginx.conf
+   37  ll
+   38  mkdir conf.d
+   39  nano nginx.conf
+   40  nginx -t
+   41  ll
+   42  cd conf.d/
+   43  ll
+   44  nano test.ntwrk.top.conf
+   45  ngnx -t
+   46  nginx -t
+   47  nano test.ntwrk.top.conf
+   48  nginx -t
+   49  nginx -s reload
+   50  cat ../nginx.conf
+   51  nano ../nginx.conf
+   52  nginx -t
+   53  nano ../nginx.conf
+   54  nano ../nginx.conf
+   55  nginx -t
+   56  nginx -s reload
+   57  ll
+   58  nano ../nginx.conf
+   59  nginx -t
+   60  nano ../nginx.conf
+   61  useradd -r nginx
+   62  nginx -t
+   63  nginx -s reload
+   64  cd ..
+   65  ll
+   66  chown root:nginx html/
+   67  ll
+   68  ll html/
+   69  chown -r root:nginx html/
+   70  chown root:nginx html/*.html
+   71  nginx -s reload
+   72  nginx -t
+   73  cat /var/log/nginx/error.log
+   74  cat /var/log/nginx/access.log
+   75  tail -f /var/log/nginx/access.log
+   76  nginx -T
+   77  ll conf.d/
+   78  cat nginx.conf
+   79  nano nginx.conf
+   80  nginx -t
+   81  nginx -s reload
+   82  certbot --nginx -d test.ntwrk.top www.test.ntwrk.top
+   83  certbot --nginx -d test.ntwrk.top -d www.test.ntwrk.top
+   84  certbot --nginx -d test.ntwrk.top -d www.test.ntwrk.top --register-unsafely-without-email
+   85  certbot --nginx -d test.ntwrk.top --register-unsafely-without-email
+   86  nginx -t
+   87  nginx -s reload
+   88  tail -f /var/log/nginx/access.log
+   89  cat /var/log/nginx/error.log
+   90  systemctl status nginx
+   91  systemctl restart nginx
+   92  ll conf.d/
+   93  ll html/
+   94  ll
+   95  cat conf.d/test.ntwrk.top.conf
+   96  nano conf.d/test.ntwrk.top.conf
+   97  nginx -t
+   98  nginx -s reload
+   99  htpasswd -c /etc/nginx/.htpasswd oleh
+  100  dnf install httpd-tools
+  101  htpasswd -c /etc/nginx/.htpasswd oleh
+  102  nano conf.d/test.ntwrk.top.conf
+  103  nginx -t
+  104  nginx -s reload
+  105  mkdir -p html/admin
+  106  touch html/admin/index.html
+  107  nano html/admin/index.html
+  108  nginx -t
+  109  nginx -s reload
+  110  cd
+  111  history > history.txt
